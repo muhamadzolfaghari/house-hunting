@@ -1,9 +1,12 @@
 import MuiDrawer from "@material-ui/core/Drawer";
+import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 
 const Drawer = () => (
-  <MuiDrawer>
-    <ListItem>fsdfsd</ListItem>
+  <MuiDrawer variant="permanent">
+    <List>
+      <ListItem>fsdfsd</ListItem>
+    </List>
   </MuiDrawer>
 );
 
