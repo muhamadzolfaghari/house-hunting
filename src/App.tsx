@@ -1,17 +1,23 @@
 import React from "react";
 import "./App.css";
-import Manage from "./pages/Manage/Manage";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Box from "@material-ui/core/Box";
+import {
+  BrowserRouter as Router,
+  Redirect,
+  Route,
+  Switch,
+} from "react-router-dom";
+import Property from "./pages/Manage/Property/Property";
 
 function App() {
   return (
     <Router>
-      <Box mt={"1rem"} p={"3rem"}>
-        <Switch>
-          <Route path={"/manage"} component={Manage} />
-        </Switch>
-      </Box>
+      <Switch>
+        <Route path={"/manage/property"} component={Property} />
+        <Route
+          path={"/manage"}
+          render={() => <Redirect to={"/manage/property"} />}
+        />
+      </Switch>
     </Router>
   );
 }
