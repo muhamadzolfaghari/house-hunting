@@ -1,47 +1,47 @@
-import { createTheme } from "@material-ui/core";
-import { CacheProvider } from "@emotion/react";
-import createCache from "@emotion/cache";
-import { FC } from "react";
+import { createTheme } from '@material-ui/core';
+import { CacheProvider } from '@emotion/react';
+import createCache from '@emotion/cache';
+import { FC } from 'react';
 
 const defaultTheme = createTheme();
 
 export const theme = createTheme({
-  direction: "rtl",
+  direction: 'rtl',
   typography: {
     fontSize: 12.5,
     fontWeightMedium: 600,
-    fontFamily: "Vazir FD, commissioner",
+    fontFamily: "'Roboto', sans-serif",
     h1: {
-      fontSize: "2.7em",
-      paddingTop: "1.5em",
-      paddingBottom: "0.67em",
+      fontSize: '2.7em',
+      paddingTop: '1.5em',
+      paddingBottom: '0.67em',
       fontWeight: defaultTheme.typography.fontWeightRegular,
     },
     h2: {
-      fontSize: "2em",
-      paddingBottom: "0.9em",
+      fontSize: '2em',
+      paddingBottom: '0.9em',
       fontWeight: defaultTheme.typography.fontWeightRegular,
     },
     h3: {
-      fontSize: "1.5em",
-      paddingBottom: "0.89em",
+      fontSize: '1.5em',
+      paddingBottom: '0.89em',
       fontWeight: defaultTheme.typography.fontWeightBold,
     },
     h4: {
-      fontSize: "1.25em",
-      paddingBottom: "0.8em",
+      fontSize: '1.25em',
+      paddingBottom: '0.8em',
       fontWeight: defaultTheme.typography.fontWeightBold,
     },
     h5: {
-      fontSize: "1.1em",
-      paddingBottom: "0.7em",
+      fontSize: '1.1em',
+      paddingBottom: '0.7em',
       fontWeight: defaultTheme.typography.fontWeightBold,
     },
   },
 });
 
 const emotionCache = createCache({
-  key: "a",
+  key: 'a',
   prepend: true,
 });
 

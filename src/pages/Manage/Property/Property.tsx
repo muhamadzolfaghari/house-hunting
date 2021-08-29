@@ -11,6 +11,7 @@ const Property = () => (
         color={"primary"}
         variant={"contained"}
         className={classes.button}
+        href={"/manage/property/create"}
       >
         Add New Property
       </Button>

@@ -4,7 +4,7 @@ import Typography from "@material-ui/core/Typography";
 import classes from "./Header.module.css";
 
 const Header = () => (
-  <AppBar position="fixed" className={classes.root} elevation={1}>
+  <AppBar position="fixed" className={classes.root}>
     <Toolbar>
       <Typography
         variant="h6"
