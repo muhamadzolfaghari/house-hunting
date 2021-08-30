@@ -10,7 +10,7 @@ const ManageDrawerList = () => {
 
   return (
     <List>
-      <ListItem button selected={activeRoute === "/property"}>
+      <ListItem button selected={activeRoute.includes("/property")}>
         <ListItemIcon>
           <HomeOutlinedIcon />
         </ListItemIcon>
