@@ -46,14 +46,18 @@ const AddPropertyForm = () => {
           required
           name={'description'}
           label={'Description'}
-          value={form.values.description}
           onBlur={form.handleBlur}
           onChange={form.handleChange}
+          value={form.values.description}
           helperText={form.touched.description && form.errors.description}
           error={form.touched.description && Boolean(form.errors.description)}
         />
       </div>
-      <Button disabled={!form.isValid || !form.dirty} variant={'contained'}>
+      <Button
+        type={'submit'}
+        variant={'contained'}
+        disabled={!form.isValid || !form.dirty}
+      >
         Add Property
       </Button>
     </form>

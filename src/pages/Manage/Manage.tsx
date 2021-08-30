@@ -1,9 +1,9 @@
 import ManageLayout from "../../components/UI/Layout/Manage/ManageLayout";
-import PropertyContent from "./Property/PropertyContent";
+import PropertyList from "../../components/Manage/Property/PropertyList/PropertyList";
 
 const Manage = () => (
   <ManageLayout>
-    <PropertyContent />
+    <PropertyList />
   </ManageLayout>
 );
 
