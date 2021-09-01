@@ -15,6 +15,7 @@ const PropertyList = () => {
     list,
     keys,
     openDialog,
+    handleEdit,
     handleRemove,
     handleCloseDialog,
     handleConfirmRemove,
@@ -42,10 +43,10 @@ const PropertyList = () => {
                 <TableCell key={index}>{item[key]}</TableCell>
               ))}
               <TableCell>
-                <IconButton color={'primary'}>
+                <IconButton color={'primary'} onClick={handleEdit(index)}>
                   <EditOutlinedIcon />
                 </IconButton>
-                <IconButton color={'warning'} onClick={handleRemove(index)}>
+                <IconButton color={'error'} onClick={handleRemove(index)}>
                   <DeleteForeverOutlinedIcon />
                 </IconButton>
               </TableCell>

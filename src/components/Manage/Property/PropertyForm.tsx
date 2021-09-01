@@ -1,10 +1,15 @@
 import TextField from '@material-ui/core/TextField';
-import useAddPropertyForm from '../../../hooks/useAddPropertyForm';
 import Button from '@material-ui/core/Button';
-import classes from './AddPropertyFrom.module.css';
+import classes from './PropertyFrom.module.css';
+import usePropertyForm from '../../../hooks/usePropertyForm';
+import { ManageMethodType } from '../../../types/ManageMethodType';
 
-const AddPropertyForm = () => {
-  const form = useAddPropertyForm();
+interface IProps {
+  method: ManageMethodType;
+}
+
+const PropertyForm = ({ method }: IProps) => {
+  const form = usePropertyForm(method);
 
   return (
     <form onSubmit={form.handleSubmit}>
@@ -23,8 +28,8 @@ const AddPropertyForm = () => {
           required
           name={'address'}
           label={'Address'}
-          value={form.values.address}
           onBlur={form.handleBlur}
+          value={form.values.address}
           onChange={form.handleChange}
           helperText={form.touched.address && form.errors.address}
           error={form.touched.address && Boolean(form.errors.address)}
@@ -33,12 +38,10 @@ const AddPropertyForm = () => {
           required
           name={'price'}
           label={'Price'}
-          InputProps={{
-            startAdornment: '$',
-          }}
           onBlur={form.handleBlur}
           value={form.values.price}
           onChange={form.handleChange}
+          InputProps={{ startAdornment: '$' }}
           helperText={form.touched.price && form.errors.price}
           error={form.touched.price && Boolean(form.errors.price)}
         />
@@ -58,10 +61,10 @@ const AddPropertyForm = () => {
         variant={'contained'}
         disabled={!form.isValid || !form.dirty}
       >
-        Add Property
+        {method === 'add' ? 'Add Property' : 'Update Property'}
       </Button>
     </form>
   );
 };
 
-export default AddPropertyForm;
+export default PropertyForm;
