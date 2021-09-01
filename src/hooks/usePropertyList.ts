@@ -1,9 +1,9 @@
 import { useSelector } from 'react-redux';
-import { propertySelector, useAppDispatch } from "../app/hooks";
+import { propertySelector, useAppDispatch } from '../app/hooks';
 import IProperty from '../interfaces/IProperty';
 import { useRef, useState } from 'react';
-import { propertyChanged, propertyRemoved } from "../features/propertySlice";
-import { useHistory } from "react-router-dom";
+import { propertyRemoved } from '../features/propertySlice';
+import { useHistory } from 'react-router-dom';
 
 const usePropertyList = () => {
   const history = useHistory();
@@ -19,8 +19,8 @@ const usePropertyList = () => {
   };
 
   const handleEdit = (index: number) => () => {
-    history.push('/manage/')
-  }
+    history.push(`/manage/property/edit/${index}`);
+  };
 
   const handleConfirmRemove = () => {
     dispatch(propertyRemoved(propertyIndex.current!));
@@ -34,6 +34,7 @@ const usePropertyList = () => {
     list,
     keys,
     openDialog,
+    handleEdit,
     handleRemove,
     setOpenDialog,
     handleCloseDialog,

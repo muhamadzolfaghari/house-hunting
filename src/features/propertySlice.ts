@@ -1,22 +1,10 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import IPropertyState from '../interfaces/IPropertyState';
 import IProperty from '../interfaces/IProperty';
-import { PROPERTY_STORAGE_KEY } from '../lib/localStorage.const';
-
-const retrieveLocalStorageData = () => {
-  const storageItem = localStorage.getItem(PROPERTY_STORAGE_KEY);
-
-  if (!storageItem) return [];
-
-  try {
-    return JSON.parse(storageItem) as IProperty[];
-  } catch {
-    return [];
-  }
-};
+import getPropertyFromStorage from '../lib/utils/getPropertyFromStorage';
 
 const initialState: IPropertyState = {
-  value: retrieveLocalStorageData(),
+  value: getPropertyFromStorage() ?? [],
 };
 
 export const propertySlice = createSlice({
@@ -29,12 +17,23 @@ export const propertySlice = createSlice({
     propertyCreated(state, action: PayloadAction<IProperty>) {
       state.value = [...state.value, action.payload];
     },
+    propertyUpdated(
+      state,
+      action: PayloadAction<{ index: number; property: IProperty }>
+    ) {
+      const { index, property } = action.payload;
+      state.value[index] = property;
+    },
     propertyRemoved(state, action: PayloadAction<number>) {
       state.value = state.value.filter((_, index) => index !== action.payload);
     },
   },
 });
 
-export const { propertyChanged, propertyCreated, propertyRemoved } =
-  propertySlice.actions;
+export const {
+  propertyChanged,
+  propertyCreated,
+  propertyRemoved,
+  propertyUpdated,
+} = propertySlice.actions;
 export default propertySlice.reducer;
